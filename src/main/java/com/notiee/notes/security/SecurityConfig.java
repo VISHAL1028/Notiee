@@ -54,7 +54,7 @@ public class SecurityConfig {
                 -> requests
                 .requestMatchers("/api/admin/**").hasRole("ADMIN")
                 .requestMatchers("/api/csrf-token").permitAll()
-                .requestMatchers("/api/auth/public/signin").permitAll()
+                .requestMatchers("/api/auth/public/**").permitAll()
 
                 .anyRequest().authenticated());
         http.exceptionHandling(exception -> exception.authenticationEntryPoint(unauthorizedHandler));
